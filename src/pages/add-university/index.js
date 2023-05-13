@@ -27,8 +27,9 @@ export default function addUniversity() {
     const [isImage, setIsImage] = useState(false);
 
     const [province, setProvince] = useState(1);
-    const [addressKM, setAddressKM] = useState(null);
+    const [addressKM, setAddressKM] = useState('ភ្នំពេញ');
     const [addressEN, setAddressEN] = useState(null);
+    const [location, setLocation] = useState('https://goo.gl/maps/6u5N64tPUg3ZvXki7');
     const [phone, setPhone] = useState(null);
     const [email, setEmail] = useState(null);
     const [website, setWebsite] = useState(null);
@@ -114,6 +115,7 @@ export default function addUniversity() {
                     province_id: province,
                     address_km: addressKM,
                     address_en: addressEN,
+                    location: location
                 }
 
                 fetch(api+'/university_branches', {
@@ -316,7 +318,7 @@ export default function addUniversity() {
                         required
                     >
                         {provinces.map(province => {
-                            return <option key={province.id} value={province.id}>{province.province_name_km}</option>
+                            return <option key={province.id} value={province.id}>{province.name_km}</option>
                         })}
                     </select>
                 </div>
@@ -345,6 +347,18 @@ export default function addUniversity() {
                         name="address_en"
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         onChange={(e) => setAddressEN(e.target.value)}
+                    />
+                </div>
+                <div className="mb-6">
+                    <label htmlFor="address_en" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        Location
+                    </label>
+                    <input
+                        type="text"
+                        id="location"
+                        name="location"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        onChange={(e) => setLocation(e.target.value)}
                     />
                 </div>
 

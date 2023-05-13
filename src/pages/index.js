@@ -156,7 +156,7 @@ export default function Home() {
                                               {university.id}
                                             </td>
                                             <td className="px-6 py-4">
-                                              <img src={"http://localhost:8000/api/images/"+university.logo}
+                                              <img src={api+"/images/"+university.logo}
                                                    alt="university_logo"
                                                    className="h-16"
                                               />
@@ -171,7 +171,7 @@ export default function Home() {
                                               <div className="btn-group" role="group">
 
                                                 <button className="text-danger hover:underline me-4" onClick={() => { setIsModalDelete(true); setUniversityId(university.id)}}>លុប</button>
-                                                <button className="text-success hover:underline" onClick={e => {router.push("/detail").then(r => console.log('success', r));}}>លម្អិត</button>
+                                                <button className="text-success hover:underline" onClick={e => {router.push("/detail/"+university.id).then(r => console.log('success', r));}}>លម្អិត</button>
                                               </div>
                                             </td>
                                           </tr>
